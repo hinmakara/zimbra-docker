@@ -1,0 +1,24 @@
+version: '3.3'
+
+services:
+  zimbra:
+    build: ./docker
+    image: hinmakara/zimbra-docker
+    hostname: ${HOSTNAME}.${DOMAIN}
+    environment:
+      - PASSWORD=${PASSWORD}
+      - HOSTNAME=${HOSTNAME}
+      - DOMAIN=${DOMAIN}
+    restart: always
+    networks:
+      zimbra:
+        ipv4_address: ${CONTAINERIP}
+    volumes:
+      - /srv/zimbra:/opt/zimbra
+
+networks:
+  zimbra:
+    external:
+      name: vlan21
+
+
