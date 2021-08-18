@@ -1,3 +1,4 @@
+#! /bin/sh
 # Configuring DNS Server
 echo ""
 echo -e "[INFO] : Configuring DNS Server"
